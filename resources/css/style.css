@@ -68,7 +68,7 @@ header {
 /* Navigation Bar  */
 .navBackground {
   width: 100%;
-  height: 2.5rem;
+
   background-color: firebrick;
 }
 
@@ -80,6 +80,10 @@ header {
   display: none;
 }
 
+.midRangeNav{
+  display: none;
+}
+
 .menu {
   width: 960px;
   margin: 0 auto;
@@ -88,10 +92,11 @@ header {
   justify-content: stretch;
 }
 
-.menu span {
+.menu a {
   color: white;
   font-family: Helvetica;
-  margin: 0.75rem auto 0.75rem auto;
+  padding: 0.75rem 2rem 0.75rem 2rem;
+  flex: 1;
 }
 
 /* Item Gallery */
@@ -195,7 +200,7 @@ footer {
   width: 960px;
   margin: 0 auto;
   display: flex;
-
+  height: 5rem;
 }
 
 footer p {
@@ -204,34 +209,93 @@ footer p {
   top: 2rem;
 }
 
+/* Media Queri middle Screen */
 @media only screen and (max-width: 1024px) {
   #midScreenMenu {
-    display: block;
+    display: none;
     cursor: pointer;
     margin: 0 auto;
   }
+
   .menu {
     text-align: center;
     width: 100%;
     display: none;
   }
-  .menu span {
+
+  .menu a {
+    color: black;
+    display: block;
+    padding: 0.75rem 2rem;
+  }
+
+  .midRangeNav {
+    background-color: firebrick;;
     display: block;
     border-bottom:1px solid #EAEAEB;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    text-align: center;
+    color: white;
+    font-family: Helvetica, serif;
+    cursor: pointer;
   }
+
+  .midRangeNav:hover {
+    background-color: #731818;
+  }
+
   #midScreenMenu:checked + .menu {
     display: block;
     cursor: pointer;
+    background-color: white;
+    z-index: 1;
+  }
 
+  #midScreenMenu:checked + .menu a {
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    display: block;
   }
 
   #glasses {
     display: none;
   }
+
   .item {
     width: 47%;
     margin: 0 auto;
   }
 
+.navBackground {
+  background: none;
+}
 
+}
+
+/* Media Queri Small screens */
+@media only screen and (max-width: 470px) {
+  .itemGallery {
+    width: 100%;
+  }
+
+  #watch {
+    display: none;
+  }
+
+  .info {
+    width: 470px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+  .infoData {
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .infoBlockLocation {
+
+  }
 }
